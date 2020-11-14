@@ -1,14 +1,29 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
+import React, { Component, Fragment } from 'react';
+import ReactDOM from 'react-dom';
+
+import Header from './Layout/Header';
+import Dashboards from './Leads/Dashboard';
+
+import { Provider } from 'react-redux';
+import store from '../store';
+
 // import './App.css'
 
 class App extends Component {
     render() {
         return (
-        <div className='App'>
-            <h1>Hyewona keldi janym FINALLY</h1>
-            <h2>lole2</h2>
-        </div> );
+            <Provider store={store}>
+                <Fragment>
+                    <Header />
+                    <div className='container'>
+                        <Dashboards />
+                    </div>
+
+                </Fragment>
+            </Provider>
+
+
+        );
     }
 }
 
