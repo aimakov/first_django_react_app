@@ -12,7 +12,7 @@ export class Form extends Component {
         message: ''
     }
 
-    static PropTypes = {
+    static propTypes = {
         addLead: PropTypes.func.isRequired
     }
 
