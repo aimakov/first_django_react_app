@@ -10,6 +10,13 @@ export class Register extends Component {
         password2: ''
     }
 
+    onSubmit = e => {
+        e.preventDefault();
+        console.log('submit');
+    }
+
+    onChange = e => this.setState({ [e.target.name]: e.target.value })
+
     render() {
 
         const { username, email, password, password2 } = this.state;

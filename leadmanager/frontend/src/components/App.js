@@ -6,11 +6,17 @@ import Header from './Layout/Header';
 import Dashboard from './Leads/Dashboard';
 import Alerts from './Layout/Alerts';
 
+import Login from './accounts/Login';
+import Register from './accounts/Register';
+import PrivateRoute from './common/PrivateRoute';
+
 import { Provider } from 'react-redux';
 import store from '../store';
 
 import { positions, Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
+
+import { loadUser } from '../actions/auth';
 
 // import './App.css'
 
@@ -20,6 +26,11 @@ const alertOptions = {
     position: positions.TOP_CENTER
 }
 class App extends Component {
+
+    componentDidMount() {
+        store.dispatch(loadUser());
+    }
+
     render() {
         return (
             <Provider store={store}>
@@ -30,7 +41,9 @@ class App extends Component {
                             <Alerts />
                             <div className='container'>
                                 <Switch>
-                                    <Route exact path='/' component={Dashboard} />
+                                    <PrivateRoute exact path='/' component={Dashboard} />
+                                    <Route exact path='/register' component={Register} />
+                                    <Route exact path='/login' component={Login} />
                                 </Switch>
 
                             </div>
