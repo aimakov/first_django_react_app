@@ -19,6 +19,11 @@ export class Header extends Component {
 
         const authLinks = (
             <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+                <span className='navbar-text mr-3'>
+                    <strong>
+                        {user ? `Welcome ${user.username}` : ''}
+                    </strong>
+                </span>
                 <li className="nav-item">
                     <button className='nav-link- btn btn-info btn-sm text-light' onClick={this.props.logout}>Logout</button>
                 </li>
@@ -40,10 +45,11 @@ export class Header extends Component {
 
         return (
             <nav className="navbar navbar-expand-sm navbar-light bg-light">
+                {/* <nav className="navbar navbar-expand-sm navbar-light bg-light"> */}
                 <div className="container">
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
-                    </button>
+                    </button> */}
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
                         <a className="navbar-brand" href="#">Nurba did this right now</a>
                         {isAuthenticated ? authLinks : guestLinks}
